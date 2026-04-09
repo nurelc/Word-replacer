@@ -1,11 +1,15 @@
-def replace_words(text, replacements):
-    for old, new in replacements.items():
-        text = text.replace(old, new)
-    return text
+def replace_word(text, old_word, new_word):
+    if old_word not in text:
+        return "Слово не найдено!"
+    return text.replace(old_word, new_word)
 
-if __name__ == "__main__":
-    sample_text = input("Введите текст: ")
-    old_word = input("Слово, которое нужно заменить: ")
-    new_word = input("Слово на которое заменить: ")
-    replacements = {old_word: new_word}
-    print("Результат:", replace_words(sample_text, replacements))
+while True:
+    text = input("Введите текст: ")
+    old_word = input("Какое слово заменить: ")
+    new_word = input("На какое слово заменить: ")
+
+    print("Результат:", replace_word(text, old_word, new_word))
+
+    again = input("Еще раз? (да/нет): ")
+    if again.lower() != "да":
+        break
